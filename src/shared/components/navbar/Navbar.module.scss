@@ -1,0 +1,9 @@
+.navbar {
+  position: absolute;
+  left: 0;
+  top: 100px;
+
+  &__item {
+    margin: 10px 0;
+  }
+}

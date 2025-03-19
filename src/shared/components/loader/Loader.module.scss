@@ -1,0 +1,29 @@
+.loader_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: "all 0.25s ease-in-out";
+  background-color: #191919;
+  color: #dbd8d6;
+  h1 {
+    font-size: 1.5vw;
+    text-transform: uppercase;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 1.5vw;
+
+    text-transform: uppercase;
+    font-family: "Bodoni Moda", serif;
+    font-style: italic;
+    margin-top: 10px;
+  }
+}

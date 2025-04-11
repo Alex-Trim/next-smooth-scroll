@@ -21,6 +21,7 @@ export const Feature = () => {
         <h3 className={styles.featured__text}>green</h3>
         <div className={`${styles.image_wraper} ${reveal && styles.is_reveal}`}>
           <Image
+            priority
             src="/image/photo-1598838073192-05c942ede858.webp"
             alt="Nature photo"
             fill
@@ -33,6 +34,7 @@ export const Feature = () => {
         <h3 className={styles.featured__text}>lily</h3>
         <div className={`${styles.image_wraper} ${reveal && styles.is_reveal}`}>
           <Image
+            priority
             src="/image/photo-1552248524-10d9a7e4841c.webp"
             alt="Nature photo"
             fill

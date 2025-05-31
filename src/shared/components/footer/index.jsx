@@ -34,7 +34,7 @@ export const Footer = () => {
     }
   }, [reveal]);
   return (
-    <section className={styles.footer} ref={ref}>
+    <section className={`main-container ${styles.footer}`} ref={ref}>
       <h2 className={`title ${styles.footer__title}`}>Made in</h2>
 
       <h1

@@ -31,54 +31,56 @@ const images = [
     category: "Shooting / Adv.Campaing",
   },
 ];
-
 export const Gallery = () => {
   const [activeImage, setActiveImage] = useState(1);
+  const sectionRef = useRef(null);
   const galleryRef = useRef(null);
-  const counterRef = useRef(null);
-
+  const horizontalRef = useRef(null);
   useEffect(() => {
-    let sections = gsap.utils.toArray(".gallery-item-wrapper");
-
-    console.log(sections);
     gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({
-      trigger: galleryRef.current,
-      start: "top top",
-      end: () => `+=${galleryRef.current.offsetWidth}`,
-      scrub: 0.5,
-      pin: true,
-      onUpdate: (self) => {
-        gsap.to(sections, {
-          x: `${-290 * self.progress}vw`,
-          duration: 0.5,
-          ease: "power3.out",
-        });
+
+    const sections = gsap.utils.toArray(`.gallery-item`);
+
+    let scrollTween = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+
+        start: "top top",
+        pin: true,
+        scrub: 0.5,
+        snap: 1 / (sections.length - 1),
+        end: () => `+=${horizontalRef.current.offsetWidth}`,
       },
     });
+
+    return () => {
+      scrollTween.kill();
+    };
   }, []);
 
   const handleUpdateActiveImage = (index) => {
     setActiveImage(index + 1);
   };
-
   return (
-    <section className={styles.gallery} data-scroll-section>
-      <div className={` ${styles.gallery__container}`} ref={galleryRef}>
-        <div className={styles.gallery__counter} ref={counterRef}>
+    <section className={styles.gallery} data-scroll-section ref={sectionRef}>
+      <div className={styles.gallery__container} ref={galleryRef}>
+        <div className={styles.gallery__counter}>
           <span>{activeImage}</span>
           <span className={styles.divider} />
           <span>{images.length}</span>
         </div>
-        {images.map((image, index) => (
-          <GalleryItem
-            key={index}
-            index={index}
-            className={styles.item}
-            {...image}
-            updateActiveImage={handleUpdateActiveImage}
-          />
-        ))}
+        <div className={styles.gallery__horizontal} ref={horizontalRef}>
+          {images.map((image, index) => (
+            <GalleryItem
+              key={index}
+              index={index}
+              {...image}
+              updateActiveImage={handleUpdateActiveImage}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

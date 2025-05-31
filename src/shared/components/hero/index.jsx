@@ -25,7 +25,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className={styles.hero}>
+    <section className={`main-container ${styles.hero}`}>
       <Navbar />
       <h1 className={styles.hero__text} id="hero-text">
         Art Objects

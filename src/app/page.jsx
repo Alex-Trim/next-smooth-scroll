@@ -39,7 +39,7 @@ export default function Home() {
       {preloader ? (
         <Loader />
       ) : (
-        <main data-scroll-container className="main-container">
+        <main data-scroll-container>
           <Hero />
           <Feature />
           <About />

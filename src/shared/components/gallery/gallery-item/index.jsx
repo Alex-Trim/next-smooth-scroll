@@ -22,20 +22,20 @@ export const GalleryItem = ({
 
   return (
     <article
-      className={`${styles.item}  gallery-item-wrapper ${
-        onScreen && styles.is_reveal
-      }`}
+      className={`${styles.item} gallery-item ${onScreen && styles.is_reveal}`}
       ref={ref}
     >
-      <div className={styles.item__info}>
-        <h1 className={styles.item__title}>{title}</h1>
-        <h2 className={styles.item__subtitle}>{subtitle}</h2>
-        <p className={styles.item__category}>{category}</p>
+      <div className={styles.item__content}>
+        <div className={styles.item__info}>
+          <h1 className={styles.item__title}>{title}</h1>
+          <h2 className={styles.item__subtitle}>{subtitle}</h2>
+          <p className={styles.item__category}>{category}</p>
+        </div>
+        <div
+          className={styles.item__image}
+          style={{ backgroundImage: `url(${src})` }}
+        />
       </div>
-      <div
-        className={`${styles.item__image} `}
-        style={{ backgroundImage: `url(${src})` }}
-      />
     </article>
   );
 };

@@ -36,7 +36,7 @@ export const About = () => {
   }, [reveal]);
   return (
     <section
-      className={`${styles.about} ${reveal && styles.is_reveal}`}
+      className={`main-container ${styles.about} ${reveal && styles.is_reveal}`}
       ref={ref}
     >
       <h2 className={`title ${styles.about__title}`}>about</h2>

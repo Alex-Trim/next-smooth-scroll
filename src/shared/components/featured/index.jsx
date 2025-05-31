@@ -14,7 +14,11 @@ export const Feature = () => {
   }, [onScreen]);
 
   return (
-    <section className={styles.featured} ref={ref} data-scroll-section>
+    <section
+      className={`main-container ${styles.featured}`}
+      ref={ref}
+      data-scroll-section
+    >
       <article
         className={`${styles.featured__item} ${styles.featured__item_row}`}
       >
